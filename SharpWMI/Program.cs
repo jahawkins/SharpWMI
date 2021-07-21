@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
 using System.Threading;
+using System.Diagnostics;
 
 namespace SharpWMI
 {
@@ -1764,6 +1765,7 @@ EXAMPLES:
             if (args.Length < 1)
             {
                 Usage();
+                Process.GetCurrentProcess().Kill();
                 return;
             }
 
@@ -1785,6 +1787,7 @@ EXAMPLES:
                 if (!arguments.ContainsKey("password"))
                 {
                     Usage();
+                    Process.GetCurrentProcess().Kill();
                     return;
                 }
                 else
@@ -1807,12 +1810,14 @@ EXAMPLES:
             if (arguments.ContainsKey("password") && !arguments.ContainsKey("username"))
             {
                 Usage();
+                Process.GetCurrentProcess().Kill();
                 return;
             }
 
             if (!arguments.ContainsKey("action"))
             {
                 Usage();
+                Process.GetCurrentProcess().Kill();
                 return;
             }
 
@@ -1826,6 +1831,7 @@ EXAMPLES:
                 if (!arguments.ContainsKey("query"))
                 {
                     Usage();
+                    Process.GetCurrentProcess().Kill();
                     return;
                 }
 
@@ -1872,6 +1878,7 @@ EXAMPLES:
                 else
                 {
                     Usage();
+                    Process.GetCurrentProcess().Kill();
                     return;
                 }
             }
@@ -1889,6 +1896,7 @@ EXAMPLES:
                 else
                 {
                     Usage();
+                    Process.GetCurrentProcess().Kill();
                     return;
                 }
             }
@@ -1907,6 +1915,7 @@ EXAMPLES:
                 else
                 {
                     Usage();
+                    Process.GetCurrentProcess().Kill();
                     return;
                 }
             }
@@ -1950,6 +1959,7 @@ EXAMPLES:
                 else
                 {
                     Usage();
+                    Process.GetCurrentProcess().Kill();
                     return;
                 }
             }
@@ -1966,6 +1976,7 @@ EXAMPLES:
                 else
                 {
                     Usage();
+                    Process.GetCurrentProcess().Kill();
                     return;
                 }
             }
@@ -1982,6 +1993,7 @@ EXAMPLES:
                 else
                 {
                     Usage();
+                    Process.GetCurrentProcess().Kill();
                     return;
                 }
             }
@@ -2038,8 +2050,10 @@ EXAMPLES:
             else
             {
                 Usage();
+                Process.GetCurrentProcess().Kill();
                 return;
             }
+            Process.GetCurrentProcess().Kill();
         }
     }
 }
